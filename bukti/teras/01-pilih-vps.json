@@ -1,0 +1,56 @@
+{
+  "bab": "teras/01-pilih-vps",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-25T20:16:54Z",
+  "fail_langkah": "langkah/teras/01-pilih-vps.sh",
+  "sha256": "db4e775eee9a34dfb70c7e8ad90e179ca201e495485089714dd4742cc6d8d592",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "masuk-pertama",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "vps",
+        " 20:18:26 up 0 min,  1 user,  load average: 2.00, 0.51, 0.17",
+        "Warning: Permanently added '203.0.113.10' (ED25519) to the list of known hosts."
+      ]
+    },
+    {
+      "id": "semak-os",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "Ubuntu 24.04.5 LTS"
+      ]
+    },
+    {
+      "id": "semak-virtualisasi",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "virtualization: kvm"
+      ]
+    },
+    {
+      "id": "semak-sumber",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "CPU cores: 2",
+        "RAM: 2.1G",
+        "Disk: 8.7G total, 7.1G free"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 90 s)"
+  ]
+}

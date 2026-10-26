@@ -1,0 +1,24 @@
+# <Nama ejen> (PRD K10, K12; D3). Templat: salin ke ejen/<nama>/ejen.toml (CONTRIBUTING.md). Versi yang DIUJI, dipin
+# pada tag + digest imej. Bab `ejen/<nama>` memakai {{ejen:<nama>.<kunci>}}, dan alat/bina.py menyemak rujukan imej
+# dalam langkah/ejen/<nama>.sh sama dengan [imej] dan [imej_undur] di bawah.
+
+[ejen]
+nama = "Nama Ejen"
+repo = "https://github.com/pemilik/projek"
+dokumen = "https://docs.example.com/"
+lesen = "MIT"
+# Halaman dokumentasi rasmi yang diikut, dibaca pada tag keluaran di bawah (bukan cawangan utama).
+versi = "v1.2.3"
+tarikh_keluaran = "2026-01-31"
+
+[imej]
+# Imej Docker rasmi. Digest = indeks imej bagi tag ini (`docker buildx imagetools inspect <nama>:<tag>`).
+nama = "pemilik/projek"
+tag = "v1.2.3"
+digest = "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+
+[imej_undur]
+# Keluaran stabil sebelumnya: bab berlatih undur ke versi ini dan kemas kini semula ke [imej].
+nama = "pemilik/projek"
+tag = "v1.2.2"
+digest = "sha256:0000000000000000000000000000000000000000000000000000000000000000"

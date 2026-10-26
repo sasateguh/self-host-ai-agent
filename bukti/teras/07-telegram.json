@@ -1,0 +1,99 @@
+{
+  "bab": "teras/07-telegram",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-26T01:42:53Z",
+  "fail_langkah": "langkah/teras/07-telegram.sh",
+  "sha256": "d8150efae3a693282bd12c2d662620c2850d604d9a4984ce3b8dc1d74e2d3e6e",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "alat",
+      "kod": 0,
+      "tempoh_s": 45.6,
+      "log": [
+        "Get:39 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [31.0 kB]",
+        "Get:40 http://archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [18.6 kB]",
+        "Get:41 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [12.6 kB]",
+        "Get:42 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [1588 B]",
+        "Get:43 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]",
+        "Get:44 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 c-n-f Metadata [116 B]",
+        "Get:45 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [748 B]",
+        "Get:46 http://archive.ubuntu.com/ubuntu noble-backports/multiverse Translation-en [340 B]",
+        "Get:47 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]",
+        "Get:48 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 c-n-f Metadata [116 B]",
+        "Fetched 33.6 MB in 14s (2321 kB/s)",
+        "Reading package lists...",
+        "Reading package lists...",
+        "Building dependency tree...",
+        "Reading state information...",
+        "curl is already the newest version (8.5.0-2ubuntu10.16).",
+        "curl set to manually installed.",
+        "jq is already the newest version (1.7.1-3ubuntu0.24.04.2).",
+        "jq set to manually installed.",
+        "0 upgraded, 0 newly installed, 0 to remove and 17 not upgraded."
+      ]
+    },
+    {
+      "id": "simpan-token",
+      "kod": 0,
+      "tempoh_s": 0.8,
+      "log": []
+    },
+    {
+      "id": "semak-bot",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "palsu_bot"
+      ]
+    },
+    {
+      "id": "id-sembang",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "1001 Ujian: /start"
+      ]
+    },
+    {
+      "id": "hantar",
+      "kod": 0,
+      "tempoh_s": 0.8,
+      "log": [
+        "Hello from your server"
+      ]
+    },
+    {
+      "id": "kebenaran",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "700 root /etc/agent",
+        "600 root /etc/agent/telegram.env",
+        "TELEGRAM_API_URL=...",
+        "TELEGRAM_BOT_TOKEN=...",
+        "TELEGRAM_CHAT_ID=..."
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: pelayan palsu 'palsu' boleh dicapai dari VM",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 105 s)"
+  ],
+  "palsu": {
+    "kiraan": {
+      "telegram.getMe": 1,
+      "telegram.getUpdates": 1,
+      "telegram.sendMessage": 1
+    },
+    "dihantar": [
+      "Hello from your server"
+    ]
+  }
+}

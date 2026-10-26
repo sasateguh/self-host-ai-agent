@@ -1,0 +1,118 @@
+{
+  "bab": "teras/02-pengguna-ssh",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-25T20:20:19Z",
+  "fail_langkah": "langkah/teras/02-pengguna-ssh.sh",
+  "sha256": "392e3186cefae674d8d4370a454f2532bfc0c24ea0dfd20b8b57a15ccacd927a",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "kunci-anda",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "256 SHA256:APJK8KB9Cuw+NiI7ijVMgm+JWkdqpj98varqb324p3A pembaca (ED25519)"
+      ]
+    },
+    {
+      "id": "masuk-root",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "root",
+        "Warning: Permanently added '203.0.113.10' (ED25519) to the list of known hosts."
+      ]
+    },
+    {
+      "id": "sebelum",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.3,
+      "log": [
+        "root@203.0.113.10: Permission denied (publickey,password)."
+      ]
+    },
+    {
+      "id": "cipta-pengguna",
+      "kod": 0,
+      "tempoh_s": 0.9,
+      "log": [
+        "info: Adding user `ejen' ...",
+        "info: Selecting UID/GID from range 1000 to 59999 ...",
+        "info: Adding new group `ejen' (1001) ...",
+        "info: Adding new user `ejen' (1001) with group `ejen (1001)' ...",
+        "info: Creating home directory `/home/ejen' ...",
+        "info: Copying files from `/etc/skel' ...",
+        "info: Adding new user `ejen' to supplemental / extra groups `users' ...",
+        "info: Adding user `ejen' to group `users' ...",
+        "uid=1001(ejen) gid=1001(ejen) groups=1001(ejen),27(sudo),100(users)"
+      ]
+    },
+    {
+      "id": "masuk-pengguna",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 1.4,
+      "log": [
+        "ejen",
+        "ejen sudo users"
+      ]
+    },
+    {
+      "id": "kunci-ssh",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": [
+        "permitrootlogin no",
+        "passwordauthentication no",
+        "kbdinteractiveauthentication no"
+      ]
+    },
+    {
+      "id": "kata-laluan-ditolak",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.3,
+      "log": [
+        "ejen@203.0.113.10: Permission denied (publickey)."
+      ]
+    },
+    {
+      "id": "root-ditolak",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.3,
+      "log": [
+        "root login refused",
+        "root@203.0.113.10: Permission denied (publickey)."
+      ]
+    },
+    {
+      "id": "masuk-semula",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "ejen",
+        "sudo asks for a password"
+      ]
+    },
+    {
+      "id": "buang-fail-kata-laluan",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": []
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 89 s)"
+  ]
+}

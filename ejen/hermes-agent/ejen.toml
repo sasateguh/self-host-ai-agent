@@ -1,0 +1,25 @@
+# Hermes Agent (PRD K10, K12; D3). Versi yang DIUJI, dipin pada tag + digest imej. Kod dan templat membaca fail ini:
+# bab `ejen/hermes-agent` memakai {{ejen:hermes-agent.<kunci>}}, dan alat/bina.py menyemak rujukan imej dalam fail langkah
+# sama dengan [imej] dan [imej_undur] di bawah. Kemas kini versi = sunting fail ini + langkah, lari semula alat ujian.
+
+[ejen]
+nama = "Hermes Agent"
+repo = "https://github.com/NousResearch/hermes-agent"
+dokumen = "https://hermes-agent.nousresearch.com/docs/"
+lesen = "MIT"
+# Keluaran yang dibaca semasa menulis bab (dokumen rasmi pada tag ini: website/docs/user-guide/docker.md,
+# user-guide/messaging/telegram.md, integrations/providers.md, reference/cli-commands.md).
+versi = "v0.22.5"
+tarikh_keluaran = "2026-10-23"
+
+[imej]
+# Imej Docker rasmi. Digest = indeks berbilang seni bina (amd64 + arm64) bagi tag di atas.
+nama = "nousresearch/hermes-agent"
+tag = "v0.22.5"
+digest = "sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d"
+
+[imej_undur]
+# Keluaran sebelumnya: bab berlatih undur ke versi ini dan kemas kini semula ke [imej].
+nama = "nousresearch/hermes-agent"
+tag = "v0.22.4"
+digest = "sha256:7a69201726bc64db2072a1371557137c23312d29705cda2b8ea2a0214a50a4cf"

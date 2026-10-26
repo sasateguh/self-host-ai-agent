@@ -1,0 +1,242 @@
+{
+  "bab": "teras/08-kunci-model",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-26T01:45:33Z",
+  "fail_langkah": "langkah/teras/08-kunci-model.sh",
+  "sha256": "5e58e991062f72b5257a950f808f9f632e32622afc52be7e50e336c5645b8377",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "alat",
+      "kod": 0,
+      "tempoh_s": 7.8,
+      "log": [
+        "Hit:1 https://download.docker.com/linux/ubuntu noble InRelease",
+        "Hit:2 http://archive.ubuntu.com/ubuntu noble InRelease",
+        "Hit:3 http://security.ubuntu.com/ubuntu noble-security InRelease",
+        "Hit:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease",
+        "Hit:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease",
+        "Reading package lists...",
+        "Reading package lists...",
+        "Building dependency tree...",
+        "Reading state information...",
+        "curl is already the newest version (8.5.0-2ubuntu10.16).",
+        "jq is already the newest version (1.7.1-3ubuntu0.24.04.2).",
+        "jq set to manually installed.",
+        "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+      ]
+    },
+    {
+      "id": "simpan-kunci",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": []
+    },
+    {
+      "id": "uji-kunci",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": [
+        "600 root /etc/agent/model.key",
+        "palsu-model"
+      ]
+    },
+    {
+      "id": "env-kelihatan",
+      "kod": 0,
+      "tempoh_s": 4.4,
+      "log": [
+        "Unable to find image 'alpine:3.20' locally",
+        "3.20: Pulling from library/alpine",
+        "25f1d6b1951a: Pulling fs layer",
+        "25f1d6b1951a: Download complete",
+        "d4050d56ebf2: Download complete",
+        "25f1d6b1951a: Pull complete",
+        "3a030ca3f633: Download complete",
+        "Digest: sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc",
+        "Status: Downloaded newer image for alpine:3.20",
+        "[\"OPENAI_API_KEY=example-not-a-real-key\",\"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"]",
+        "1",
+        "env-check"
+      ]
+    },
+    {
+      "id": "compose-rahsia",
+      "kod": 0,
+      "tempoh_s": 2.0,
+      "log": [
+        " Network key-check_default Creating",
+        " Network key-check_default Creating",
+        " Network key-check_default Created",
+        " Network key-check_default Created",
+        " Container key-check-key-check-1 Creating",
+        " Container key-check-key-check-1 Created",
+        " Container key-check-key-check-1 Starting",
+        " Container key-check-key-check-1 Started",
+        " Container key-check-key-check-1 Waiting",
+        " Container key-check-key-check-1 Healthy",
+        "key loaded: 17 characters"
+      ]
+    },
+    {
+      "id": "semak-bocor",
+      "kod": 0,
+      "tempoh_s": 1.0,
+      "log": [
+        "[\"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"]",
+        "the key is not in docker inspect or in the logs"
+      ]
+    },
+    {
+      "id": "putar",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": []
+    },
+    {
+      "id": "guna-kunci-baharu",
+      "kod": 0,
+      "tempoh_s": 12.4,
+      "log": [
+        " Container key-check-key-check-1 Recreate",
+        " Container key-check-key-check-1 Recreated",
+        " Container key-check-key-check-1 Starting",
+        " Container key-check-key-check-1 Started",
+        " Container key-check-key-check-1 Waiting",
+        " Container key-check-key-check-1 Healthy",
+        "key loaded: 19 characters",
+        "palsu-model"
+      ]
+    },
+    {
+      "id": "kemas",
+      "kod": 0,
+      "tempoh_s": 11.6,
+      "log": [
+        " Container key-check-key-check-1 Stopping",
+        " Container key-check-key-check-1 Stopped",
+        " Container key-check-key-check-1 Removing",
+        " Container key-check-key-check-1 Removed",
+        " Network key-check_default Removing",
+        " Network key-check_default Removed",
+        "Untagged: alpine:3.20",
+        "Deleted: sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: pelayan palsu 'palsu' boleh dicapai dari VM",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 96 s)"
+  ],
+  "prasyarat": [
+    {
+      "bab": "teras/03-firewall-kemas-kini",
+      "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+      "langkah": [
+        {
+          "id": "kemas-kini",
+          "kod": 0,
+          "tempoh_s": 74.3
+        },
+        {
+          "id": "pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 2.3
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "ufw",
+          "kod": 0,
+          "tempoh_s": 3.4
+        },
+        {
+          "id": "selepas",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "henti-pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kemas-kini-automatik",
+          "kod": 0,
+          "tempoh_s": 3.7
+        }
+      ]
+    },
+    {
+      "bab": "teras/04-docker",
+      "sha256": "d69506d969ca9970f9c392c15e79bf24e34be5bb9e9479e932e97dc5173663ec",
+      "langkah": [
+        {
+          "id": "pasang",
+          "kod": 0,
+          "tempoh_s": 46.4
+        },
+        {
+          "id": "log",
+          "kod": 0,
+          "tempoh_s": 3.6
+        },
+        {
+          "id": "hello",
+          "kod": 0,
+          "tempoh_s": 4.2
+        },
+        {
+          "id": "terbit-semua",
+          "kod": 0,
+          "tempoh_s": 7.3
+        },
+        {
+          "id": "terbit-semua-luar",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "terbit-tempatan",
+          "kod": 0,
+          "tempoh_s": 2.4
+        },
+        {
+          "id": "terbit-tempatan-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "compose",
+          "kod": 0,
+          "tempoh_s": 2.3
+        },
+        {
+          "id": "compose-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "kemas",
+          "kod": 0,
+          "tempoh_s": 1.5
+        }
+      ]
+    }
+  ],
+  "palsu": {
+    "kiraan": {
+      "openai.models": 2
+    },
+    "dihantar": []
+  }
+}

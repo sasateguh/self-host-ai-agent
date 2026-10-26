@@ -1,0 +1,126 @@
+{
+  "bab": "teras/03-firewall-kemas-kini",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-25T20:22:01Z",
+  "fail_langkah": "langkah/teras/03-firewall-kemas-kini.sh",
+  "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "kemas-kini",
+      "kod": 0,
+      "tempoh_s": 71.3,
+      "log": [
+        "debconf: unable to initialize frontend: Dialog",
+        "debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)",
+        "debconf: falling back to frontend: Readline",
+        "debconf: unable to initialize frontend: Readline",
+        "debconf: (This frontend requires a controlling tty.)",
+        "debconf: falling back to frontend: Teletype",
+        "Running kernel seems to be up-to-date.",
+        "Restarting services...",
+        " /etc/needrestart/restart.d/systemd-manager",
+        " systemctl restart multipathd.service packagekit.service polkit.service ssh.service systemd-journald.service systemd-networkd.service systemd-resolved.service systemd-timesyncd.service systemd-udevd.s...",
+        "Service restarts being deferred:",
+        " systemctl restart ModemManager.service",
+        " /etc/needrestart/restart.d/dbus.service",
+        " systemctl restart systemd-logind.service",
+        " systemctl restart unattended-upgrades.service",
+        "No containers need to be restarted.",
+        "User sessions running outdated binaries:",
+        " uji @ session #6: sshd[1331]",
+        " uji @ user manager service: systemd[975]",
+        "No VM guests are running outdated hypervisor (qemu) binaries on this host."
+      ]
+    },
+    {
+      "id": "pelayan-cuba",
+      "kod": 0,
+      "tempoh_s": 2.1,
+      "log": [
+        "test server: HTTP 200",
+        "Running as unit: firewall-test.service; invocation ID: 21a0dd993f184eed94ecf645a32c88ea",
+        "curl: (7) Failed to connect to 127.0.0.1 port 8080 after 0 ms: Couldn't connect to server"
+      ]
+    },
+    {
+      "id": "sebelum",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "port 8080 reachable from outside (no firewall yet)",
+        "Connection to 203.0.113.10 8080 port [tcp/*] succeeded!"
+      ]
+    },
+    {
+      "id": "ufw",
+      "kod": 0,
+      "tempoh_s": 5.1,
+      "log": [
+        "Building dependency tree...",
+        "Reading state information...",
+        "ufw is already the newest version (0.36.2-6).",
+        "ufw set to manually installed.",
+        "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.",
+        "Default incoming policy changed to 'deny'",
+        "(be sure to update your rules accordingly)",
+        "Default outgoing policy changed to 'allow'",
+        "(be sure to update your rules accordingly)",
+        "Rules updated",
+        "Rules updated (v6)",
+        "Firewall is active and enabled on system startup",
+        "Status: active",
+        "Logging: on (low)",
+        "Default: deny (incoming), allow (outgoing), disabled (routed)",
+        "New profiles: skip",
+        "To                         Action      From",
+        "--                         ------      ----",
+        "22/tcp (OpenSSH)           ALLOW IN    Anywhere",
+        "22/tcp (OpenSSH (v6))      ALLOW IN    Anywhere (v6)"
+      ]
+    },
+    {
+      "id": "selepas",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 5.1,
+      "log": [
+        "port 8080 blocked from outside",
+        "port 22 (SSH) still open",
+        "Connection to 203.0.113.10 22 port [tcp/*] succeeded!"
+      ]
+    },
+    {
+      "id": "henti-pelayan-cuba",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": []
+    },
+    {
+      "id": "kemas-kini-automatik",
+      "kod": 0,
+      "tempoh_s": 3.7,
+      "log": [
+        "Reading package lists...",
+        "Building dependency tree...",
+        "Reading state information...",
+        "unattended-upgrades is already the newest version (2.9.1+nmu4ubuntu1).",
+        "unattended-upgrades set to manually installed.",
+        "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.",
+        "APT::Periodic::Unattended-Upgrade \"1\";",
+        "enabled",
+        "unattended upgrades: dry run passed"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 86 s)"
+  ]
+}

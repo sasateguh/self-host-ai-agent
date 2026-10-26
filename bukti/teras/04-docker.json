@@ -1,0 +1,218 @@
+{
+  "bab": "teras/04-docker",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-26T00:47:47Z",
+  "fail_langkah": "langkah/teras/04-docker.sh",
+  "sha256": "d69506d969ca9970f9c392c15e79bf24e34be5bb9e9479e932e97dc5173663ec",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "pasang",
+      "kod": 0,
+      "tempoh_s": 55.6,
+      "log": [
+        "Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /usr/lib/systemd/system/docker.socket.",
+        "Processing triggers for man-db (2.12.0-4build2) ...",
+        "debconf: unable to initialize frontend: Dialog",
+        "debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)",
+        "debconf: falling back to frontend: Readline",
+        "debconf: unable to initialize frontend: Readline",
+        "debconf: (This frontend requires a controlling tty.)",
+        "debconf: falling back to frontend: Teletype",
+        "Running kernel seems to be up-to-date.",
+        "Restarting services...",
+        "Service restarts being deferred:",
+        " /etc/needrestart/restart.d/dbus.service",
+        " systemctl restart systemd-logind.service",
+        " systemctl restart unattended-upgrades.service",
+        "No containers need to be restarted.",
+        "User sessions running outdated binaries:",
+        " uji @ user manager service: systemd[990]",
+        "No VM guests are running outdated hypervisor (qemu) binaries on this host.",
+        "Docker Engine 29.9.2",
+        "Docker Compose version v5.6.1"
+      ]
+    },
+    {
+      "id": "log",
+      "kod": 0,
+      "tempoh_s": 2.9,
+      "log": [
+        "log driver: local"
+      ]
+    },
+    {
+      "id": "hello",
+      "kod": 0,
+      "tempoh_s": 4.2,
+      "log": [
+        "Unable to find image 'hello-world:latest' locally",
+        "latest: Pulling from library/hello-world",
+        "4f55086f7dd0: Pulling fs layer",
+        "4f55086f7dd0: Download complete",
+        "4f55086f7dd0: Pull complete",
+        "d5e71e642bf5: Download complete",
+        "Digest: sha256:11a3eb1597e864c51b3f56733cb2e8a90bf0c284bfc05f9444d81c558bc848aa",
+        "Status: Downloaded newer image for hello-world:latest",
+        "Hello from Docker!"
+      ]
+    },
+    {
+      "id": "terbit-semua",
+      "kod": 0,
+      "tempoh_s": 7.8,
+      "log": [
+        "26185d08a3ec: Download complete",
+        "657023555a2a: Download complete",
+        "2ec5fb117ffa: Download complete",
+        "7cc330898115: Download complete",
+        "7b229517ed22: Pull complete",
+        "acc2d54c3743: Download complete",
+        "a4d5b1f57abc: Download complete",
+        "12b85cff06fd: Pull complete",
+        "657023555a2a: Pull complete",
+        "7cc330898115: Pull complete",
+        "9b0f7dfe35b2: Pull complete",
+        "26185d08a3ec: Pull complete",
+        "2ec5fb117ffa: Pull complete",
+        "b9b388a21ecf: Pull complete",
+        "Digest: sha256:a3554c0d0b48177b1413c26e01f695334428020d9df01243fbae3e11cfd17417",
+        "Status: Downloaded newer image for nginx:alpine",
+        "09260687b599db252a28554aa1fd0aa0ec10f5c190f3914ad4bf622abf8b410d",
+        "curl: (56) Recv failure: Connection reset by peer",
+        "80/tcp -> 0.0.0.0:8080",
+        "80/tcp -> [::]:8080"
+      ]
+    },
+    {
+      "id": "terbit-semua-luar",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "Connection to 203.0.113.10 8080 port [tcp/*] succeeded!",
+        "port 8080 reachable from outside, although ufw only allows SSH"
+      ]
+    },
+    {
+      "id": "terbit-tempatan",
+      "kod": 0,
+      "tempoh_s": 2.5,
+      "log": [
+        "port-test",
+        "76e72fd627a4a72a76f54277f4cf997befb2ea231448ed2eaff96e3fcb8fba01",
+        "curl: (56) Recv failure: Connection reset by peer",
+        "on the server: HTTP 200",
+        "80/tcp -> 127.0.0.1:8080"
+      ]
+    },
+    {
+      "id": "terbit-tempatan-luar",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 5.1,
+      "log": [
+        "port 8080 blocked from outside"
+      ]
+    },
+    {
+      "id": "compose",
+      "kod": 0,
+      "tempoh_s": 3.1,
+      "log": [
+        "port-test",
+        " Network port-test_default Creating",
+        " Network port-test_default Creating",
+        " Network port-test_default Created",
+        " Network port-test_default Created",
+        " Container port-test-web-1 Creating",
+        " Container port-test-web-1 Created",
+        " Container port-test-web-1 Starting",
+        " Container port-test-web-1 Started",
+        " Container port-test-web-1 Waiting",
+        " Container port-test-web-1 Healthy",
+        "port-test-web-1: 127.0.0.1:8080->80/tcp",
+        "on the server: HTTP 200"
+      ]
+    },
+    {
+      "id": "compose-luar",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 5.1,
+      "log": [
+        "port 8080 blocked from outside"
+      ]
+    },
+    {
+      "id": "kemas",
+      "kod": 0,
+      "tempoh_s": 1.5,
+      "log": [
+        " Container port-test-web-1 Stopping",
+        " Container port-test-web-1 Stopped",
+        " Container port-test-web-1 Removing",
+        " Container port-test-web-1 Removed",
+        " Network port-test_default Removing",
+        " Network port-test_default Removed",
+        "Untagged: nginx:alpine",
+        "Deleted: sha256:a3554c0d0b48177b1413c26e01f695334428020d9df01243fbae3e11cfd17417",
+        "Untagged: hello-world:latest",
+        "Deleted: sha256:11a3eb1597e864c51b3f56733cb2e8a90bf0c284bfc05f9444d81c558bc848aa",
+        "containers left: 0"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 88 s)"
+  ],
+  "prasyarat": [
+    {
+      "bab": "teras/03-firewall-kemas-kini",
+      "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+      "langkah": [
+        {
+          "id": "kemas-kini",
+          "kod": 0,
+          "tempoh_s": 70.4
+        },
+        {
+          "id": "pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 2.2
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "ufw",
+          "kod": 0,
+          "tempoh_s": 3.0
+        },
+        {
+          "id": "selepas",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "henti-pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kemas-kini-automatik",
+          "kod": 0,
+          "tempoh_s": 3.5
+        }
+      ]
+    }
+  ]
+}

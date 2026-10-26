@@ -1,0 +1,178 @@
+{
+  "bab": "teras/05-domain-https",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-25T21:01:50Z",
+  "fail_langkah": "langkah/teras/05-domain-https.sh",
+  "sha256": "09590ff1581e48b7f7ab92248105d7ab8a5de3111f461ce9f22a2af0bdbf7a12",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "dns",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "PING example.com (203.0.113.10) 56(84) bytes of data.",
+        "64 bytes from example.com (203.0.113.10): icmp_seq=1 ttl=64 time=0.643 ms",
+        "--- example.com ping statistics ---",
+        "1 packets transmitted, 1 received, 0% packet loss, time 0ms",
+        "rtt min/avg/max/mdev = 0.643/0.643/0.643/0.000 ms"
+      ]
+    },
+    {
+      "id": "ejen-cuba",
+      "kod": 0,
+      "tempoh_s": 1.6,
+      "log": [
+        "hello from the agent",
+        "Running as unit: agent-test.service; invocation ID: 7176ef02d4a64fce94cbfd9bb0cca4e0",
+        "curl: (7) Failed to connect to 127.0.0.1 port 8080 after 0 ms: Couldn't connect to server"
+      ]
+    },
+    {
+      "id": "pasang-caddy",
+      "kod": 0,
+      "tempoh_s": 34.2,
+      "log": [
+        "debconf: unable to initialize frontend: Readline",
+        "debconf: (This frontend requires a controlling tty.)",
+        "debconf: falling back to frontend: Teletype",
+        "dpkg-preconfigure: unable to re-open stdin:",
+        "debconf: unable to initialize frontend: Dialog",
+        "debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)",
+        "debconf: falling back to frontend: Readline",
+        "debconf: unable to initialize frontend: Readline",
+        "debconf: (This frontend requires a controlling tty.)",
+        "debconf: falling back to frontend: Teletype",
+        "Running kernel seems to be up-to-date.",
+        "Restarting services...",
+        "Service restarts being deferred:",
+        " /etc/needrestart/restart.d/dbus.service",
+        " systemctl restart systemd-logind.service",
+        " systemctl restart unattended-upgrades.service",
+        "No containers need to be restarted.",
+        "User sessions running outdated binaries:",
+        " uji @ user manager service: systemd[977]",
+        "No VM guests are running outdated hypervisor (qemu) binaries on this host."
+      ]
+    },
+    {
+      "id": "firewall",
+      "kod": 0,
+      "tempoh_s": 1.1,
+      "log": [
+        "Rule added",
+        "Rule added (v6)",
+        "Rule added",
+        "Rule added (v6)",
+        "Status: active",
+        "To                         Action      From",
+        "--                         ------      ----",
+        "OpenSSH                    ALLOW       Anywhere",
+        "80/tcp                     ALLOW       Anywhere",
+        "443/tcp                    ALLOW       Anywhere",
+        "OpenSSH (v6)               ALLOW       Anywhere (v6)",
+        "80/tcp (v6)                ALLOW       Anywhere (v6)",
+        "443/tcp (v6)               ALLOW       Anywhere (v6)"
+      ]
+    },
+    {
+      "id": "caddyfile",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "Valid configuration"
+      ]
+    },
+    {
+      "id": "sijil",
+      "kod": 0,
+      "tempoh_s": 2.6,
+      "log": [
+        "{\"level\":\"info\",\"ts\":1792962358.2102344,\"logger\":\"tls.obtain\",\"msg\":\"certificate obtained successfully\",\"identifier\":\"agent.example.com\",\"issuer\":\"acme-v02.api.letsencrypt.org-directory\"}"
+      ]
+    },
+    {
+      "id": "https",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.3,
+      "log": [
+        "hello from the agent",
+        "http://  -> HTTP 308 https://agent.example.com/",
+        "https:// -> HTTP 200, certificate check 0 (0 = valid)"
+      ]
+    },
+    {
+      "id": "port-dalaman",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 5.1,
+      "log": [
+        "port 8080 blocked from outside: only Caddy reaches the agent"
+      ]
+    },
+    {
+      "id": "henti-ejen-cuba",
+      "kod": 0,
+      "tempoh_s": 1.1,
+      "log": []
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 116 s)"
+  ],
+  "ca": [
+    "ca: pebble v2.10.1/pebble-linux-amd64.tar.gz sha256 4f2fcb5bca8c85c9cf73ad140fccfc0d2be40bd81ab99879c79b7b8a0b4f70ed",
+    "ca: sedia (nama contoh -> VM; acme-v02.api.letsencrypt.org -> Pebble, disemak dari VM)"
+  ],
+  "prasyarat": [
+    {
+      "bab": "teras/03-firewall-kemas-kini",
+      "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+      "langkah": [
+        {
+          "id": "kemas-kini",
+          "kod": 0,
+          "tempoh_s": 73.5
+        },
+        {
+          "id": "pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 3.1
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "ufw",
+          "kod": 0,
+          "tempoh_s": 4.3
+        },
+        {
+          "id": "selepas",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "henti-pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kemas-kini-automatik",
+          "kod": 0,
+          "tempoh_s": 4.3
+        }
+      ]
+    }
+  ]
+}

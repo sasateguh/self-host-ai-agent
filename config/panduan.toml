@@ -1,0 +1,134 @@
+# Nilai panduan yang munasabah berubah (PRD K3). Kod dan templat MEMBACA fail ini; jangan tulis nilai ini dalam kod atau prosa.
+# Kemas kini versi = sunting fail ini, lari semula harness, komit bukti baharu.
+# Versi ejen TIDAK di sini: setiap ejen memin versinya dalam ejen/<nama>/ejen.toml (PRD K10, K12).
+
+[ubuntu]
+# LTS yang diuji. Imej bekas = "ubuntu:<versi>"; VM tahap B = cloud image versi sama.
+versi = "24.04"
+nama_kod = "noble"
+
+[contoh]
+# Nilai contoh dalam arahan. Domain = RFC 2606 (tidak pernah milik sesiapa); IP = RFC 5737 TEST-NET.
+pengguna = "ejen"
+domain = "example.com"
+subdomain_ejen = "agent.example.com"
+ip_vps = "203.0.113.10"
+emel_sijil = "admin@example.com"
+
+[vps]
+# Saiz minimum yang dicadangkan dalam bab teras/01-pilih-vps (prosa sahaja; langkah semakan mencetak nilai sebenar).
+ram_gb = 2
+cakera_gb = 20
+cpu = 1
+
+[port]
+ssh = 22
+http = 80
+https = 443
+# Port dalaman yang ejen dengar; proksi terbalik meneruskan ke sini (tidak dibuka pada firewall).
+ejen_dalaman = 8080
+
+[uji]
+# Alat ujian (alat/uji.py). Setiap bab dijalankan dalam bekas baharu; tiada arahan dijalankan atas mesin yang melancarnya.
+# Nama hos bekas, supaya gesaan dan log dalam bukti tidak pernah membawa nama mesin sebenar.
+hostname = "vps"
+# Saat sebelum satu langkah dihentikan (kod keluar 124 dalam bukti).
+masa_langkah_s = 900
+# Saat menunggu bekas pelayan palsu sedia.
+masa_sedia_s = 180
+# N baris output terakhir setiap langkah disimpan dalam bukti; baris lebih panjang dipotong.
+log_ekor = 20
+log_lebar = 200
+
+[uji.env]
+# Env untuk SETIAP langkah. Bekas tiada terminal: tanpa ini apt berhenti menunggu jawapan (cth zon waktu tzdata).
+DEBIAN_FRONTEND = "noninteractive"
+
+[palsu]
+# Penyedia model palsu serasi OpenAI + Telegram Bot API palsu (uji/palsu/). Tiada kunci sebenar, tiada mesej sebenar.
+hos = "palsu"
+port = 8000
+# Mesej yang "pembaca" sudah hantar kepada bot baharunya (bab teras/07-telegram mencari ID sembang dari getUpdates).
+mesej_awal = "/start"
+
+[palsu.env]
+# Env untuk setiap langkah bab yang mengisytiharkan "# @perlu palsu". {hos} dan {port} diisi.
+OPENAI_BASE_URL = "http://{hos}:{port}/v1"
+OPENAI_API_KEY = "palsu-kunci-ujian"
+TELEGRAM_API_URL = "http://{hos}:{port}"
+TELEGRAM_BOT_TOKEN = "123456:palsu-token-ujian"
+
+[palsu.tampal]
+# Nilai yang "pembaca" tampal bila langkah bertanda "# @tampal <kunci>" meminta input (alat/uji.py), ikut urutan sepanjang
+# satu larian. Dua kunci model: bab teras/08-kunci-model memutar kunci, jadi kunci kedua mesti lain daripada yang pertama.
+token_bot = ["123456:palsu-token-ujian"]
+kunci_model = ["palsu-kunci-ujian", "palsu-kunci-putaran"]
+# Nama model yang pembaca taip dalam bab ejen (mesti ada dalam senarai /v1/models penyedia palsu).
+nama_model = ["palsu-model"]
+
+[vm]
+# Tahap B (bab "# @perlu vm"): VM Ubuntu sebenar dari cloud image, dengan KVM, dalam bekas pelancar (uji/vm/mula-vm.sh).
+# Imej dimuat turun setiap larian ke tmpfs bekas pelancar, disemak dengan SHA256SUMS, dan hilang bersama bekas.
+# {nama_kod} dan {versi} diisi dari [ubuntu], jadi menukar versi Ubuntu menukar imej bekas DAN imej VM.
+url_imej = "https://cloud-images.ubuntu.com/releases/{nama_kod}/release/ubuntu-{versi}-server-cloudimg-amd64.img"
+url_sha = "https://cloud-images.ubuntu.com/releases/{nama_kod}/release/SHA256SUMS"
+memori_mb = 2048
+cpu = 2
+# Saiz maya cakera VM (salinan-atas-tulis; hanya blok yang ditulis memakai tmpfs).
+cakera = "10G"
+# Saiz tmpfs bekas pelancar: imej asas + blok yang VM tulis. Ingatan, bukan cakera mesin pelancar.
+tmpfs_mb = 4096
+# Pengguna ujian dalam VM (kunci SSH sekali guna, sudo tanpa kata laluan). Bab panduan mencipta pengguna sendiri.
+pengguna_uji = "uji"
+# Pautan tap antara bekas pelancar ("luar") dan VM, wujud hanya dalam bekas itu. VM memakai [contoh] ip_vps, jadi arahan
+# "dari luar" dalam panduan (cth ssh ke 203.0.113.10) dijalankan tepat seperti ditulis. Pelancar = alamat lain subnet /24 sama.
+ip_pelancar = "203.0.113.1"
+# Saat menunggu VM boot + cloud-init selesai, dan (tambahan) memasang pakej pelancar + memuat turun imej.
+masa_sedia_s = 600
+masa_muat_s = 900
+
+[vm.besar]
+# Bab "# @perlu vm besar" (bab ejen: imej bekas ejen bersaiz GB, dua versi untuk ujian kemas kini + undur). Fail VM
+# dalam volume docker tanpa nama atas cakera mesin pelancar, bukan tmpfs, dan dibuang bersama bekas pelancar.
+cakera = "40G"
+# Gateway OpenClaw (Node + pekerja) dalam VM 2 vCPU / 2 GB: `--version` 42 s, backup > 900 s (D13). Bab ejen = 4 + 4 GB.
+memori_mb = 4096
+cpu = 4
+
+[ca]
+# Tahap B "# @perlu vm ca" (uji/vm/ca-palsu.sh): rangkaian ujian meniru internet untuk bab HTTPS. Nama [contoh] domain +
+# subdomain_ejen menghala ke VM, dan nama hos_acme (pengeluar lalai Let's Encrypt) dijawab oleh Pebble, CA ujian rasmi
+# Let's Encrypt, melalui CA tempatan yang hanya VM ujian percaya. Pebble mengesahkan cabaran HTTP-01/TLS-ALPN-01 dengan
+# menyambung ke VM dari luar, seperti CA sebenar. Tiada sijil sebenar dikeluarkan; binari disemak dengan sha256 di bawah.
+versi = "v2.10.1"
+url = "https://github.com/letsencrypt/pebble/releases/download/{versi}/pebble-linux-amd64.tar.gz"
+sha256 = "4f2fcb5bca8c85c9cf73ad140fccfc0d2be40bd81ab99879c79b7b8a0b4f70ed"
+hos_acme = ["acme-v02.api.letsencrypt.org", "acme-staging-v02.api.letsencrypt.org"]
+
+[bina]
+# Penjana alat/bina.py: kandungan/<bahasa>/**.md (templat prosa) -> <bahasa>/**.md (dijejak, jangan sunting dengan tangan).
+bahasa = ["en", "ms"]
+# Fail indeks setiap bahasa. Templatnya memakai {{kandungan}} untuk jadual kandungan yang dijana.
+indeks = "README.md"
+# Urutan folder bab dalam jadual kandungan (folder lain selepasnya, ikut abjad).
+urutan = ["teras", "ejen"]
+# Label blok kod yang dikira arahan shell: dalam hasil jana, setiap blok begini mesti sama bait demi bait dengan satu
+# langkah yang diuji. Blok kod TANPA label juga ditolak (label wajib, supaya arahan tidak menyelinap sebagai "teks").
+bahasa_shell = ["bash", "sh", "shell", "console", "zsh"]
+# Literal dalam fail langkah yang dibenarkan selain [contoh] ip_vps dan pengguna (semakan bina: kod dan prosa sepadan).
+ip_benar = ["127.0.0.1", "0.0.0.0"]
+pengguna_benar = ["root"]
+# Halaman depan repo (PRD K9): templat kandungan/depan/<bahasa>.md -> fail ini. {{kandungan}} di situ = jadual bab dengan
+# "diuji pada" dan bilangan langkah dari bukti/, bukan ditaip.
+depan = { en = "README.md", ms = "README.ms.md" }
+
+# Tajuk lajur jadual halaman depan.
+[bina.label.en]
+bab = "Chapter"
+diuji = "Tested on"
+langkah = "Steps run"
+
+[bina.label.ms]
+bab = "Bab"
+diuji = "Diuji pada"
+langkah = "Langkah dijalankan"

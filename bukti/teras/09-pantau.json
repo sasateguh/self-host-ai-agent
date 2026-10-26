@@ -1,0 +1,295 @@
+{
+  "bab": "teras/09-pantau",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-26T01:23:29Z",
+  "fail_langkah": "langkah/teras/09-pantau.sh",
+  "sha256": "0b56f44f74d4eeed89e3d3efb282ba442c610951833c5ed0ff1111f551dfd5c5",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "skrip",
+      "kod": 0,
+      "tempoh_s": 0.7,
+      "log": [
+        "no problems found"
+      ]
+    },
+    {
+      "id": "jadual",
+      "kod": 0,
+      "tempoh_s": 1.5,
+      "log": [
+        "Created symlink /etc/systemd/system/timers.target.wants/check-server.timer → /etc/systemd/system/check-server.timer.",
+        "NEXT                            LEFT LAST PASSED UNIT               ACTIVATES",
+        "Mon 2026-10-26 01:29:23 UTC 1min 17s -         - check-server.timer check-server.service",
+        "1 timers listed.",
+        "Pass --all to see loaded but inactive timers, too."
+      ]
+    },
+    {
+      "id": "cuba-amaran",
+      "kod": 0,
+      "tempoh_s": 0.8,
+      "log": [
+        "Running as unit: check-demo.service; invocation ID: ed7736fd7b1245b2a2bede29056f8eff",
+        "Finished with result: exit-code",
+        "Main processes terminated with: code=exited/status=3",
+        "Service runtime: 8ms",
+        "CPU time consumed: 5ms",
+        "Memory peak: 412.0K",
+        "Memory swap peak: 0B",
+        "check-demo failed on purpose",
+        "- failed services: check-demo.service"
+      ]
+    },
+    {
+      "id": "padam-amaran",
+      "kod": 0,
+      "tempoh_s": 1.0,
+      "log": [
+        "no problems found"
+      ]
+    },
+    {
+      "id": "versi-dipin",
+      "kod": 0,
+      "tempoh_s": 5.2,
+      "log": [
+        " 17a39c0ba978 Pulling fs layer 0B",
+        " 17a39c0ba978 Downloading 3.146MB",
+        " fd18d7b2aa35 Download complete 0B",
+        " ef1614f30685 Download complete 0B",
+        " 17a39c0ba978 Download complete 0B",
+        " 17a39c0ba978 Extracting 1B",
+        " 17a39c0ba978 Extracting 1B",
+        " 17a39c0ba978 Pull complete 0B",
+        " Image alpine:3.19 Pulled",
+        " Network update-demo_default Creating",
+        " Network update-demo_default Creating",
+        " Network update-demo_default Created",
+        " Network update-demo_default Created",
+        " Container update-demo-app-1 Creating",
+        " Container update-demo-app-1 Created",
+        " Container update-demo-app-1 Starting",
+        " Container update-demo-app-1 Started",
+        " Container update-demo-app-1 Waiting",
+        " Container update-demo-app-1 Healthy",
+        "3.19.9"
+      ]
+    },
+    {
+      "id": "kemas-kini",
+      "kod": 0,
+      "tempoh_s": 15.8,
+      "log": [
+        " Image alpine:3.20 Pulling",
+        " 25f1d6b1951a Pulling fs layer 0B",
+        " 25f1d6b1951a Download complete 0B",
+        " 25f1d6b1951a Extracting 1B",
+        " 25f1d6b1951a Extracting 1B",
+        " 25f1d6b1951a Extracting 1B",
+        " 3a030ca3f633 Download complete 0B",
+        " d4050d56ebf2 Download complete 0B",
+        " 25f1d6b1951a Pull complete 0B",
+        " Image alpine:3.20 Pulled",
+        " Container update-demo-app-1 Recreate",
+        " Container update-demo-app-1 Recreated",
+        " Container update-demo-app-1 Starting",
+        " Container update-demo-app-1 Started",
+        " Container update-demo-app-1 Waiting",
+        " Container update-demo-app-1 Healthy",
+        "3.20.10",
+        "no problems found"
+      ]
+    },
+    {
+      "id": "undur",
+      "kod": 0,
+      "tempoh_s": 12.7,
+      "log": [
+        " Container update-demo-app-1 Recreate",
+        " Container update-demo-app-1 Recreated",
+        " Container update-demo-app-1 Starting",
+        " Container update-demo-app-1 Started",
+        " Container update-demo-app-1 Waiting",
+        " Container update-demo-app-1 Healthy",
+        "3.19.9"
+      ]
+    },
+    {
+      "id": "kemas",
+      "kod": 0,
+      "tempoh_s": 11.1,
+      "log": [
+        " Container update-demo-app-1 Stopping",
+        " Container update-demo-app-1 Stopped",
+        " Container update-demo-app-1 Removing",
+        " Container update-demo-app-1 Removed",
+        " Network update-demo_default Removing",
+        " Network update-demo_default Removed",
+        "Untagged: alpine:3.19",
+        "Deleted: sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1",
+        "Untagged: alpine:3.20",
+        "Deleted: sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: pelayan palsu 'palsu' boleh dicapai dari VM",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 81 s)"
+  ],
+  "prasyarat": [
+    {
+      "bab": "teras/03-firewall-kemas-kini",
+      "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+      "langkah": [
+        {
+          "id": "kemas-kini",
+          "kod": 0,
+          "tempoh_s": 78.2
+        },
+        {
+          "id": "pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 2.2
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.2
+        },
+        {
+          "id": "ufw",
+          "kod": 0,
+          "tempoh_s": 3.5
+        },
+        {
+          "id": "selepas",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "henti-pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kemas-kini-automatik",
+          "kod": 0,
+          "tempoh_s": 3.9
+        }
+      ]
+    },
+    {
+      "bab": "teras/04-docker",
+      "sha256": "d69506d969ca9970f9c392c15e79bf24e34be5bb9e9479e932e97dc5173663ec",
+      "langkah": [
+        {
+          "id": "pasang",
+          "kod": 0,
+          "tempoh_s": 53.8
+        },
+        {
+          "id": "log",
+          "kod": 0,
+          "tempoh_s": 3.1
+        },
+        {
+          "id": "hello",
+          "kod": 0,
+          "tempoh_s": 4.5
+        },
+        {
+          "id": "terbit-semua",
+          "kod": 0,
+          "tempoh_s": 8.6
+        },
+        {
+          "id": "terbit-semua-luar",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "terbit-tempatan",
+          "kod": 0,
+          "tempoh_s": 2.4
+        },
+        {
+          "id": "terbit-tempatan-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "compose",
+          "kod": 0,
+          "tempoh_s": 2.9
+        },
+        {
+          "id": "compose-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "kemas",
+          "kod": 0,
+          "tempoh_s": 1.4
+        }
+      ]
+    },
+    {
+      "bab": "teras/07-telegram",
+      "sha256": "d8150efae3a693282bd12c2d662620c2850d604d9a4984ce3b8dc1d74e2d3e6e",
+      "langkah": [
+        {
+          "id": "alat",
+          "kod": 0,
+          "tempoh_s": 5.9
+        },
+        {
+          "id": "simpan-token",
+          "kod": 0,
+          "tempoh_s": 0.8
+        },
+        {
+          "id": "semak-bot",
+          "kod": 0,
+          "tempoh_s": 0.7
+        },
+        {
+          "id": "id-sembang",
+          "kod": 0,
+          "tempoh_s": 1.0
+        },
+        {
+          "id": "hantar",
+          "kod": 0,
+          "tempoh_s": 0.6
+        },
+        {
+          "id": "kebenaran",
+          "kod": 0,
+          "tempoh_s": 0.6
+        }
+      ]
+    }
+  ],
+  "palsu": {
+    "kiraan": {
+      "telegram.getMe": 1,
+      "telegram.getUpdates": 1,
+      "telegram.sendMessage": 3
+    },
+    "dihantar": [
+      "Hello from your server",
+      "vps needs attention:",
+      "- failed services: check-demo.service",
+      "vps: all clear"
+    ]
+  }
+}

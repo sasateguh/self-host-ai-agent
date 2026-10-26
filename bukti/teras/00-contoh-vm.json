@@ -1,0 +1,72 @@
+{
+  "bab": "teras/00-contoh-vm",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-25T19:46:56Z",
+  "fail_langkah": "langkah/teras/00-contoh-vm.sh",
+  "sha256": "c161a520a0f0cf395ff0b44defb1e05cc34fdd03a5debd612f4327ab87e52339",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "semak-vm",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "Ubuntu 24.04.5 LTS on kvm, PID 1 = systemd"
+      ]
+    },
+    {
+      "id": "servis-systemd",
+      "kod": 0,
+      "tempoh_s": 2.4,
+      "log": [
+        "hello from the VM",
+        "active",
+        "Created symlink /etc/systemd/system/multi-user.target.wants/contoh-web.service → /etc/systemd/system/contoh-web.service.",
+        "curl: (7) Failed to connect to 127.0.0.1 port 8080 after 0 ms: Couldn't connect to server"
+      ]
+    },
+    {
+      "id": "model-palsu",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "\"content\": \"palsu: hello from vm\""
+      ]
+    },
+    {
+      "id": "port-terbuka",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "port 8080 open from outside",
+        "hello from the VM",
+        "Connection to 203.0.113.10 8080 port [tcp/*] succeeded!"
+      ]
+    },
+    {
+      "id": "port-tertutup",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 0.1,
+      "log": [
+        "port 9 closed from outside"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: pelayan palsu 'palsu' boleh dicapai dari VM",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 87 s)"
+  ],
+  "palsu": {
+    "kiraan": {
+      "openai.chat": 1
+    },
+    "dihantar": []
+  }
+}

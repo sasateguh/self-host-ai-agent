@@ -1,0 +1,26 @@
+# OpenClaw (PRD K10, K12; D3). Versi yang DIUJI, dipin pada tag + digest imej. Kod dan templat membaca fail ini:
+# bab `ejen/openclaw` memakai {{ejen:openclaw.<kunci>}}, dan alat/bina.py menyemak rujukan imej dalam fail langkah
+# sama dengan [imej] dan [imej_undur] di bawah. Kemas kini versi = sunting fail ini + langkah, lari semula alat ujian.
+
+[ejen]
+nama = "OpenClaw"
+repo = "https://github.com/openclaw/openclaw"
+dokumen = "https://docs.openclaw.ai/"
+lesen = "MIT"
+# Keluaran yang dibaca semasa menulis bab (dokumen rasmi pada tag ini: docs/install/docker.md, docs/channels/telegram.md
+# + telegram/, docs/concepts/model-providers/custom-providers.md, docs/gateway/config-secrets-env.md, docs/cli/backup.md,
+# docs/install/updating/rollback-and-recovery.md).
+versi = "v2026.10.7"
+tarikh_keluaran = "2026-10-24"
+
+[imej]
+# Imej Docker rasmi (GitHub Container Registry, pendaftaran utama keluaran). Digest = indeks imej bagi tag di atas.
+nama = "ghcr.io/openclaw/openclaw"
+tag = "2026.10.7"
+digest = "sha256:fb26f0841659dc757f23feec9adeab51f11d76779a409db5d22e191b43841afa"
+
+[imej_undur]
+# Keluaran stabil sebelumnya: bab berlatih undur ke versi ini dan kemas kini semula ke [imej].
+nama = "ghcr.io/openclaw/openclaw"
+tag = "2026.10.6"
+digest = "sha256:7dbff0fe5f5359b1badefe90a23efa9f203cd0d3c36bee095f4896c7a1d3864b"

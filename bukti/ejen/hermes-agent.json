@@ -1,0 +1,565 @@
+{
+  "bab": "ejen/hermes-agent",
+  "tahap": "B",
+  "imej": "ubuntu:24.04",
+  "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "tarikh_utc": "2026-10-26T02:04:58Z",
+  "fail_langkah": "langkah/ejen/hermes-agent.sh",
+  "sha256": "500149cb9b5efe78e4991095da4762ffc4c475705814e2e947a6b795adbe2cf9",
+  "lulus": true,
+  "langkah": [
+    {
+      "id": "tarik",
+      "kod": 0,
+      "tempoh_s": 115.5,
+      "log": [
+        "ca72626a8583: Pull complete",
+        "151de9812f52: Pull complete",
+        "7a2d6b5df5dc: Pull complete",
+        "31b26a25b0d1: Pull complete",
+        "ba254a25965e: Pull complete",
+        "fcf720a342af: Pull complete",
+        "8862879bcf40: Pull complete",
+        "83df8e908579: Pull complete",
+        "8156192fc307: Pull complete",
+        "adb3a4272463: Pull complete",
+        "6bf67f29e320: Pull complete",
+        "8aece78ede0a: Pull complete",
+        "0e27bafb7d53: Pull complete",
+        "fc0d32dd0d9d: Pull complete",
+        "e5f078012870: Pull complete",
+        "dd7f3ed7e3f6: Pull complete",
+        "Digest: sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d",
+        "Status: Downloaded newer image for nousresearch/hermes-agent@sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d",
+        "docker.io/nousresearch/hermes-agent:v0.22.5@sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d",
+        "Hermes Agent v0.22.5 (2026.9.24) · upstream bf0203a7"
+      ]
+    },
+    {
+      "id": "config",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": [
+        "model:",
+        "  provider: custom",
+        "  base_url: http://palsu:8000/v1",
+        "  key_env: MODEL_API_KEY",
+        "  default: MODEL_NAME",
+        "platforms:",
+        "  telegram:",
+        "    extra:",
+        "      base_url: \"http://palsu:8000/bot\"",
+        "      base_file_url: \"http://palsu:8000/file/bot\""
+      ]
+    },
+    {
+      "id": "model",
+      "kod": 0,
+      "tempoh_s": 0.5,
+      "log": [
+        "palsu-model"
+      ]
+    },
+    {
+      "id": "compose",
+      "kod": 0,
+      "tempoh_s": 1.6,
+      "log": [
+        " Container hermes Creating",
+        " Container hermes Created",
+        " Container hermes Starting",
+        " Container hermes Started",
+        "NAME      IMAGE                                                                                                       COMMAND                  SERVICE   CREATED                  STATUS                ...",
+        "hermes    nousresearch/hermes-agent:v0.22.5@sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d   \"/bin/sh -c 'export …\"   hermes    Less than a second ago   Up Less than a second"
+      ]
+    },
+    {
+      "id": "sedia",
+      "kod": 0,
+      "tempoh_s": 21.8,
+      "log": [
+        "hermes  | 2026-10-26 02:12:51,356 WARNING hermes_plugins.platforms__telegram.adapter: [Telegram] Connected to Telegram (polling mode)",
+        "hermes Up 22 seconds"
+      ]
+    },
+    {
+      "id": "mesej",
+      "kod": 0,
+      "tempoh_s": 10.6,
+      "log": [
+        "2026-10-26 02:12:58,784 INFO gateway.platforms.base: [Telegram] Sending response (1302 chars) to 1001",
+        "2026-10-26 02:12:57,324 INFO [20261026_021253_7d0a0a75] agent.turn_context: conversation turn: session=20261026_021253_7d0a0a75 model=palsu-model provider=custo",
+        "2026-10-26 02:12:58,730 INFO gateway.run: response ready: platform=telegram chat=1001 session=agent:main:telegram:dm:1001 time=4.7s api_calls=1 response=1302 ch"
+      ]
+    },
+    {
+      "id": "semak-bocor",
+      "kod": 0,
+      "tempoh_s": 1.0,
+      "log": [
+        "lines with the key or token: docker inspect 0, logs 0, files in data/ 0"
+      ]
+    },
+    {
+      "id": "port",
+      "kod": 0,
+      "tempoh_s": 0.6,
+      "log": [
+        "LISTEN 0      128        127.0.0.1:8642       0.0.0.0:*    users:((\"hermes\",pid=14735,fd=29))",
+        "LISTEN 0      2048       127.0.0.1:33629      0.0.0.0:*    users:((\"hermes\",pid=14735,fd=21))"
+      ]
+    },
+    {
+      "id": "port-luar",
+      "tempat": "luar",
+      "kod": 0,
+      "tempoh_s": 3.1,
+      "log": [
+        "the agent's local API port is closed from outside"
+      ]
+    },
+    {
+      "id": "backup",
+      "kod": 0,
+      "tempoh_s": 8.6,
+      "log": [
+        "#!/bin/sh",
+        "# Daily backup of the agent's data. Add more folders after /srv/agent-data.",
+        "set -eu",
+        "export RESTIC_REPOSITORY=/var/backups/restic",
+        "export RESTIC_PASSWORD_FILE=/root/restic-password",
+        "docker exec hermes hermes backup --output /opt/data/backups/hermes.zip",
+        "restic backup --quiet /srv/agent-data /srv/hermes/compose.yaml /srv/hermes/data/backups",
+        "restic forget --quiet --keep-daily 7 --keep-weekly 4 --prune",
+        "restic check --quiet",
+        "snapshot fc795cb6 of [/srv/agent-data /srv/hermes/compose.yaml /srv/hermes/data/backups] filtered by [] at 2026-10-26 02:13:13.663877784 +0000 UTC):",
+        "/srv/hermes/compose.yaml",
+        "/srv/hermes/data",
+        "/srv/hermes/data/backups",
+        "/srv/hermes/data/backups/config",
+        "/srv/hermes/data/backups/config/.env.pre-docker-migrate.20261026-021231",
+        "/srv/hermes/data/backups/config/config.yaml.good.20261026-021231",
+        "/srv/hermes/data/backups/config/config.yaml.good.20261026-021233",
+        "/srv/hermes/data/backups/config/config.yaml.good.20261026-021254",
+        "/srv/hermes/data/backups/config/config.yaml.pre-docker-migrate.20261026-021231",
+        "/srv/hermes/data/backups/hermes.zip"
+      ]
+    },
+    {
+      "id": "pulih",
+      "kod": 0,
+      "tempoh_s": 26.0,
+      "log": [
+        "Backup contains 378 files",
+        "Target: ~/.",
+        "Checking archive integrity ...",
+        "Importing 378 files ...",
+        "Import complete: 376 files restored in 1.6s",
+        "  Target: ~/.",
+        "  Preserved 2 runtime state file(s) (kept this machine's, not the backup's):",
+        "    gateway.lock",
+        "    gateway_state.json",
+        "Note: The hermes-agent codebase was not included in the backup.",
+        "  If this is a fresh install, run: hermes update",
+        "  Run hermes gateway run as the container main process; use a Docker restart policy for persistence.",
+        "Done. Your Hermes configuration has been restored.",
+        " Container hermes Creating",
+        " Container hermes Created",
+        " Container hermes Starting",
+        " Container hermes Started",
+        "Title                            Preview                                  Last Active   ID",
+        "──────────────────────────────────────────────────────────────────────────────────────────────────────────────",
+        "palsu: Hello from the guide      Hello from the guide                     just now      20261026_021253_7d0a0a75"
+      ]
+    },
+    {
+      "id": "undur",
+      "kod": 0,
+      "tempoh_s": 124.1,
+      "log": [
+        " Image nousresearch/hermes-agent:v0.22.4@sha256:7a69201726bc64db2072a1371557137c23312d29705cda2b8ea2a0214a50a4cf Pulling",
+        " Image nousresearch/hermes-agent:v0.22.4@sha256:7a69201726bc64db2072a1371557137c23312d29705cda2b8ea2a0214a50a4cf Pulled",
+        " Container hermes Recreate",
+        " Container hermes Recreated",
+        " Container hermes Starting",
+        " Container hermes Started",
+        "Hermes Agent v0.22.4 (2026.9.24) · upstream 4d043038"
+      ]
+    },
+    {
+      "id": "kemas-kini",
+      "kod": 0,
+      "tempoh_s": 28.7,
+      "log": [
+        " Container hermes Recreate",
+        " Container hermes Recreated",
+        " Container hermes Starting",
+        " Container hermes Started",
+        "Hermes Agent v0.22.5 (2026.9.24) · upstream bf0203a7",
+        "hermes  | 2026-10-26 02:16:13,776 WARNING hermes_plugins.platforms__telegram.adapter: [Telegram] Connected to Telegram (polling mode)"
+      ]
+    },
+    {
+      "id": "mesej-selepas",
+      "kod": 0,
+      "tempoh_s": 15.2,
+      "log": [
+        "2026-10-26 02:16:21,663 INFO gateway.platforms.base: [Telegram] Sending response (36 chars) to 1001",
+        "Title                            Preview                                  Last Active   ID",
+        "──────────────────────────────────────────────────────────────────────────────────────────────────────────────",
+        "palsu: Hello from the guide      Hello from the guide                     just now      20261026_021253_7d0a0a75"
+      ]
+    },
+    {
+      "id": "nyahpasang",
+      "kod": 0,
+      "tempoh_s": 13.6,
+      "log": [
+        " Container hermes Stopping",
+        " Container hermes Stopped",
+        " Container hermes Removing",
+        " Container hermes Removed",
+        "Untagged: nousresearch/hermes-agent@sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d",
+        "Deleted: sha256:9c5561579f3ffdf333401797094ac3a743738d6c25d40f4331c7bf77b694238d",
+        "Untagged: nousresearch/hermes-agent@sha256:7a69201726bc64db2072a1371557137c23312d29705cda2b8ea2a0214a50a4cf",
+        "Deleted: sha256:7a69201726bc64db2072a1371557137c23312d29705cda2b8ea2a0214a50a4cf",
+        "#!/bin/sh",
+        "# Daily backup of the agent's data. Add more folders after /srv/agent-data.",
+        "set -eu",
+        "export RESTIC_REPOSITORY=/var/backups/restic",
+        "export RESTIC_PASSWORD_FILE=/root/restic-password",
+        "restic backup --quiet /srv/agent-data",
+        "restic forget --quiet --keep-daily 7 --keep-weekly 4 --prune",
+        "restic check --quiet",
+        "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES"
+      ]
+    }
+  ],
+  "vm": [
+    "vm: pakej pelancar dipasang",
+    "vm: imej ubuntu-24.04-server-cloudimg-amd64.img sha256 04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+    "vm: qemu dimulakan (KVM, 2048 MB, 2 CPU)",
+    "vm: kunci pembaca dipasang untuk root (seperti penyedia VPS)",
+    "vm: pelayan palsu 'palsu' boleh dicapai dari VM",
+    "vm: sedia (Ubuntu 24.04.5 LTS, 94 s)"
+  ],
+  "prasyarat": [
+    {
+      "bab": "teras/02-pengguna-ssh",
+      "sha256": "392e3186cefae674d8d4370a454f2532bfc0c24ea0dfd20b8b57a15ccacd927a",
+      "langkah": [
+        {
+          "id": "kunci-anda",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "masuk-root",
+          "kod": 0,
+          "tempoh_s": 0.8
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.3
+        },
+        {
+          "id": "cipta-pengguna",
+          "kod": 0,
+          "tempoh_s": 0.9
+        },
+        {
+          "id": "masuk-pengguna",
+          "kod": 0,
+          "tempoh_s": 0.7
+        },
+        {
+          "id": "kunci-ssh",
+          "kod": 0,
+          "tempoh_s": 0.6
+        },
+        {
+          "id": "kata-laluan-ditolak",
+          "kod": 0,
+          "tempoh_s": 0.3
+        },
+        {
+          "id": "root-ditolak",
+          "kod": 0,
+          "tempoh_s": 0.3
+        },
+        {
+          "id": "masuk-semula",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "buang-fail-kata-laluan",
+          "kod": 0,
+          "tempoh_s": 0.6
+        }
+      ]
+    },
+    {
+      "bab": "teras/03-firewall-kemas-kini",
+      "sha256": "5564f54b1a87eba654be0cf9119ea4b94bbd4f2a5c21f816023e29f10270a49b",
+      "langkah": [
+        {
+          "id": "kemas-kini",
+          "kod": 0,
+          "tempoh_s": 68.7
+        },
+        {
+          "id": "pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 2.4
+        },
+        {
+          "id": "sebelum",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "ufw",
+          "kod": 0,
+          "tempoh_s": 2.8
+        },
+        {
+          "id": "selepas",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "henti-pelayan-cuba",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kemas-kini-automatik",
+          "kod": 0,
+          "tempoh_s": 3.7
+        }
+      ]
+    },
+    {
+      "bab": "teras/04-docker",
+      "sha256": "d69506d969ca9970f9c392c15e79bf24e34be5bb9e9479e932e97dc5173663ec",
+      "langkah": [
+        {
+          "id": "pasang",
+          "kod": 0,
+          "tempoh_s": 45.0
+        },
+        {
+          "id": "log",
+          "kod": 0,
+          "tempoh_s": 2.1
+        },
+        {
+          "id": "hello",
+          "kod": 0,
+          "tempoh_s": 4.8
+        },
+        {
+          "id": "terbit-semua",
+          "kod": 0,
+          "tempoh_s": 7.4
+        },
+        {
+          "id": "terbit-semua-luar",
+          "kod": 0,
+          "tempoh_s": 0.1
+        },
+        {
+          "id": "terbit-tempatan",
+          "kod": 0,
+          "tempoh_s": 3.1
+        },
+        {
+          "id": "terbit-tempatan-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "compose",
+          "kod": 0,
+          "tempoh_s": 2.6
+        },
+        {
+          "id": "compose-luar",
+          "kod": 0,
+          "tempoh_s": 5.1
+        },
+        {
+          "id": "kemas",
+          "kod": 0,
+          "tempoh_s": 1.5
+        }
+      ]
+    },
+    {
+      "bab": "teras/06-backup-pulih",
+      "sha256": "5471ed231ca2ec7632c2d6e8c7030bb5a643cd3abc70582549f728e9292f9fca",
+      "langkah": [
+        {
+          "id": "data-contoh",
+          "kod": 0,
+          "tempoh_s": 0.6
+        },
+        {
+          "id": "pasang-restic",
+          "kod": 0,
+          "tempoh_s": 15.4
+        },
+        {
+          "id": "repositori",
+          "kod": 0,
+          "tempoh_s": 2.9
+        },
+        {
+          "id": "skrip",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "jadual",
+          "kod": 0,
+          "tempoh_s": 1.3
+        },
+        {
+          "id": "backup-pertama",
+          "kod": 0,
+          "tempoh_s": 3.4
+        },
+        {
+          "id": "salin-luar",
+          "kod": 0,
+          "tempoh_s": 0.8
+        },
+        {
+          "id": "padam",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "pulih",
+          "kod": 0,
+          "tempoh_s": 1.3
+        }
+      ]
+    },
+    {
+      "bab": "teras/07-telegram",
+      "sha256": "d8150efae3a693282bd12c2d662620c2850d604d9a4984ce3b8dc1d74e2d3e6e",
+      "langkah": [
+        {
+          "id": "alat",
+          "kod": 0,
+          "tempoh_s": 4.2
+        },
+        {
+          "id": "simpan-token",
+          "kod": 0,
+          "tempoh_s": 1.4
+        },
+        {
+          "id": "semak-bot",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "id-sembang",
+          "kod": 0,
+          "tempoh_s": 0.6
+        },
+        {
+          "id": "hantar",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "kebenaran",
+          "kod": 0,
+          "tempoh_s": 0.5
+        }
+      ]
+    },
+    {
+      "bab": "teras/08-kunci-model",
+      "sha256": "5e58e991062f72b5257a950f808f9f632e32622afc52be7e50e336c5645b8377",
+      "langkah": [
+        {
+          "id": "alat",
+          "kod": 0,
+          "tempoh_s": 4.6
+        },
+        {
+          "id": "simpan-kunci",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "uji-kunci",
+          "kod": 0,
+          "tempoh_s": 0.5
+        },
+        {
+          "id": "env-kelihatan",
+          "kod": 0,
+          "tempoh_s": 7.0
+        },
+        {
+          "id": "compose-rahsia",
+          "kod": 0,
+          "tempoh_s": 2.1
+        },
+        {
+          "id": "semak-bocor",
+          "kod": 0,
+          "tempoh_s": 1.0
+        },
+        {
+          "id": "putar",
+          "kod": 0,
+          "tempoh_s": 0.6
+        },
+        {
+          "id": "guna-kunci-baharu",
+          "kod": 0,
+          "tempoh_s": 12.5
+        },
+        {
+          "id": "kemas",
+          "kod": 0,
+          "tempoh_s": 11.1
+        }
+      ]
+    }
+  ],
+  "palsu": {
+    "kiraan": {
+      "telegram.getMe": 5,
+      "telegram.getUpdates": 39,
+      "telegram.sendMessage": 6,
+      "openai.models": 16,
+      "telegram.deleteWebhook": 6,
+      "openai.401": 4,
+      "telegram.setMyCommands": 9,
+      "telegram.sendChatAction": 9,
+      "openai.chat": 3,
+      "telegram.getWebhookInfo": 1
+    },
+    "dihantar": [
+      "\\[System note: This is the user's very first message ever\\. If this message is itself a real request or task, DO THE TASK FIRST \\-\\- call whatever tools it needs \\-\\- and only then, in the closing sen...",
+      "  1\\. Ask for whatever they're comfortable sharing \\(name, what they do, how they like you to work\\)\\. Volunteered facts come first\\.",
+      "  2\\. Before ANY external lookup, say what you intend to look up and get explicit consent for that step\\. Never read their connected accounts \\(email, calendar, etc\\.\\) silently — ask each time\\.",
+      "  3\\. With consent, you may use web\\_search to confirm public details \\(e\\.g\\. employer, public profiles\\) from the data points they gave\\.",
+      "  4\\. Save each confirmed, durable fact with the memory tool using target\\=\"user\" — keep entries compact and high\\-signal\\.",
+      "If they decline at any point, stop immediately and continue normally\\. Keep the whole exchange light and conversational, not an interrogation\\.\\]",
+      "⚠️ Hermes is shutting down — your current task will be interrupted\\. When it is back online, send any message and I'll try to pick up where we left off\\.",
+      "⚠️ Hermes is shutting down — your current task will be interrupted\\. When it is back online, send any message and I'll try to pick up where we left off\\.",
+      "palsu: Still there after the update?",
+      "⚠️ Hermes is shutting down — your current task will be interrupted\\. When it is back online, send any message and I'll try to pick up where we left off\\."
+    ]
+  }
+}
