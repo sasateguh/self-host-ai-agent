@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 510" width="980" height="510" role="img" aria-label="What you build with this guide" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+<title>What you build with this guide</title>
+<defs><marker id="hujung" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4493f8"/></marker></defs>
+<rect width="980" height="510" rx="14" fill="#0d1117"/>
+<text x="32" y="44" font-size="22" font-weight="700" fill="#e6edf3">What you build with this guide</text>
+<rect x="32" y="96" width="196" height="64" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="46" y="122" font-size="16" font-weight="600" fill="#e6edf3">You</text>
+<text x="46" y="143" font-size="13" fill="#9198a1">Telegram on your phone</text>
+<rect x="32" y="262" width="196" height="64" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="46" y="288" font-size="16" font-weight="600" fill="#e6edf3">Telegram</text>
+<text x="46" y="309" font-size="13" fill="#9198a1">bot API</text>
+<line x1="130" y1="160" x2="130" y2="260" stroke="#4493f8" stroke-width="2" marker-end="url(#hujung)"/>
+<rect x="752" y="262" width="196" height="64" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="766" y="288" font-size="16" font-weight="600" fill="#e6edf3">Model provider</text>
+<text x="766" y="309" font-size="13" fill="#9198a1">OpenAI-compatible API</text>
+<rect x="268" y="76" width="452" height="400" rx="14" fill="#0f2138" stroke="#4f8fd6" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="288" y="104" font-size="15" font-weight="700" fill="#4493f8">Your VPS · Ubuntu 24.04</text>
+<rect x="288" y="120" width="412" height="62" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="302" y="146" font-size="16" font-weight="600" fill="#e6edf3">Firewall</text>
+<text x="302" y="167" font-size="13" fill="#9198a1">in: SSH (keys only) + HTTPS</text>
+<text x="688" y="146" font-size="12" text-anchor="end" fill="#ab7df8">ch. 2–3, 5</text>
+<rect x="288" y="262" width="412" height="64" rx="10" fill="#151b23" stroke="#4493f8" stroke-width="2"/>
+<text x="302" y="288" font-size="16" font-weight="600" fill="#e6edf3">AI agent</text>
+<text x="302" y="309" font-size="13" fill="#9198a1">Docker container, listens on 127.0.0.1 only</text>
+<text x="688" y="288" font-size="12" text-anchor="end" fill="#ab7df8">ch. 4 + agent</text>
+<rect x="288" y="352" width="132" height="104" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="302" y="378" font-size="16" font-weight="600" fill="#e6edf3">API key</text>
+<text x="302" y="398" font-size="12" fill="#ab7df8">ch. 8</text>
+<text x="302" y="420" font-size="13" fill="#9198a1">root-only file</text>
+<rect x="428" y="352" width="132" height="104" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="442" y="378" font-size="16" font-weight="600" fill="#e6edf3">Backups</text>
+<text x="442" y="398" font-size="12" fill="#ab7df8">ch. 6</text>
+<text x="442" y="420" font-size="13" fill="#9198a1">restore tested</text>
+<rect x="568" y="352" width="132" height="104" rx="10" fill="#151b23" stroke="#3d444d" stroke-width="1"/>
+<text x="582" y="378" font-size="16" font-weight="600" fill="#e6edf3">Monitoring</text>
+<text x="582" y="398" font-size="12" fill="#ab7df8">ch. 7, 9</text>
+<text x="582" y="420" font-size="13" fill="#9198a1">alerts by Telegram</text>
+<line x1="288" y1="294" x2="230" y2="294" stroke="#4493f8" stroke-width="2" marker-end="url(#hujung)"/>
+<text x="130" y="348" font-size="12" text-anchor="middle" fill="#9198a1">agent fetches messages</text>
+<line x1="700" y1="294" x2="750" y2="294" stroke="#4493f8" stroke-width="2" marker-end="url(#hujung)"/>
+<text x="850" y="348" font-size="12" text-anchor="middle" fill="#9198a1">agent calls model</text>
+<text x="32" y="492" font-size="13" fill="#9198a1">The agent only makes outgoing connections. From the internet, only SSH and HTTPS answer.</text>
+</svg>

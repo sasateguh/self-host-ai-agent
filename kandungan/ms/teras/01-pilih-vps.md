@@ -31,6 +31,7 @@ Beberapa penyedia yang menjual pelayan jenis ini, ikut abjad:
 | DigitalOcean | https://www.digitalocean.com |
 | Hetzner | https://www.hetzner.com/cloud |
 | OVHcloud | https://www.ovhcloud.com |
+| Tencent Cloud (Lighthouse) | https://www.tencentcloud.com/products/lighthouse |
 | Vultr | https://www.vultr.com |
 
 Tiada pautan ini membayar apa-apa kepada projek ini. Mana-mana penyedia yang memenuhi kriteria boleh dipakai.

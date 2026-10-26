@@ -6,6 +6,11 @@ A step-by-step guide to running your own AI agent, such as Hermes Agent or OpenC
 control, with a Telegram bot as the way you talk to it. Every command in this guide was run on a clean Ubuntu
 {{config:ubuntu.versi}} machine before it was published, and the record of that run is kept in this repository.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="kandungan/aset/rajah-en-gelap.svg">
+  <img src="kandungan/aset/rajah-en-cerah.svg" alt="Diagram: you message the agent through Telegram; the agent runs in Docker on your VPS behind a firewall and makes only outgoing connections, to Telegram and to the model provider." width="980">
+</picture>
+
 **Short answer:** rent a small Ubuntu {{config:ubuntu.versi}} VPS with at least {{config:vps.ram_gb}} GB of RAM, lock
 SSH to keys only, turn on the firewall and automatic security updates, install Docker, and run the agent as a container
 that only listens on the server itself. Keep the model API key in a file only root can read, talk to the agent through

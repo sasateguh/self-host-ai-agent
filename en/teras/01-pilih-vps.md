@@ -32,6 +32,7 @@ providers that sell this kind of server, in alphabetical order:
 | DigitalOcean | https://www.digitalocean.com |
 | Hetzner | https://www.hetzner.com/cloud |
 | OVHcloud | https://www.ovhcloud.com |
+| Tencent Cloud (Lighthouse) | https://www.tencentcloud.com/products/lighthouse |
 | Vultr | https://www.vultr.com |
 
 None of these links pays this project anything. Any provider that meets the criteria works.

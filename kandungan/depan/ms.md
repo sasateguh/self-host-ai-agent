@@ -7,6 +7,11 @@ Linux yang anda sewa dan kawal, dengan bot Telegram sebagai cara anda bercakap d
 dijalankan dalam mesin Ubuntu {{config:ubuntu.versi}} bersih sebelum diterbitkan, dan rekod larian itu disimpan dalam
 repo ini.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="kandungan/aset/rajah-ms-gelap.svg">
+  <img src="kandungan/aset/rajah-ms-cerah.svg" alt="Rajah: anda menghantar mesej kepada ejen melalui Telegram; ejen berjalan dalam Docker di VPS anda di belakang firewall dan hanya membuat sambungan keluar, ke Telegram dan ke penyedia model." width="980">
+</picture>
+
 **Jawapan ringkas:** sewa VPS Ubuntu {{config:ubuntu.versi}} kecil dengan sekurang-kurangnya {{config:vps.ram_gb}} GB RAM,
 kunci SSH supaya hanya menerima kunci, hidupkan firewall dan kemas kini keselamatan automatik, pasang Docker, dan jalankan
 ejen sebagai bekas yang hanya mendengar pada pelayan itu sendiri. Simpan kunci API model dalam fail yang hanya boleh
