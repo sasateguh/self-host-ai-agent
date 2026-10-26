@@ -16,3 +16,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Test runner that runs every chapter in a fresh Ubuntu container or virtual machine and saves the result in `bukti/`.
 - English and Malay text for every chapter, generated from the same tested step files.
 - Contributing guide with a template for adding an agent, and a security policy.
+
+### Fixed
+
+- `LICENSE` now holds only the MIT text, so GitHub detects the license. The scope of each license is stated in the README.
